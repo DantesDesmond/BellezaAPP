@@ -12,7 +12,7 @@
         <label for="nombre">Nombre</label>
         <input type="text"
                 id="nombre"
-                name="/>"
+                name="nombre"
                 placeholder="Tu Nombre"
                 value="<?php echo s($usuario->nombre); ?>"
              />
