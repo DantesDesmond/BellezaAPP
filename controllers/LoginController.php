@@ -43,9 +43,14 @@ class LoginController {
 
             if ($resultado->num_rows){
                 $alertas = Usuario::getAlertas();
-            }else{
-                //No esta registrado
-                debuguear('No esta registrado');
+            }else {
+                //contraseña baneada
+                $usuario->hashPassword();
+                //Aqui esta el token
+                $usuario->crearToken();
+                debuguear($usuario);
+
+
             }
         }
 
