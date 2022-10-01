@@ -2,8 +2,10 @@
 
 namespace Controllers;
 
+use Classes\Email;
 use MVC\Router;
 use Model\Usuario;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class LoginController {
     public static function login(Router $router){
@@ -48,6 +50,14 @@ class LoginController {
                 $usuario->hashPassword();
                 //Aqui esta el token
                 $usuario->crearToken();
+
+                //manda correo
+                $email = new Email($usuario->nombre, $usuario->email, 
+                $usuario->token);
+
+
+                debuguear($email);
+
                 debuguear($usuario);
 
 
