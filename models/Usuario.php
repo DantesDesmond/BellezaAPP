@@ -16,18 +16,18 @@ Class Usuario extends ActiveRecord {
     public $confirmado;
     public $token;
 
-    public function _construct ($args = []){
-        $this->id = $args['id'] ?? null;
-        $this->id = $args['nombre'] ?? '';
-        $this->id = $args['apellido'] ?? '';
-        $this->id = $args['email'] ?? '';
-        $this->id = $args['password'] ?? '';
-        $this->id = $args['telefono'] ?? '';
-        $this->id = $args['admin'] ?? null;
-        $this->id = $args['confirmado'] ?? null;
-        $this->id = $args['token'] ?? '';
-      
-      }
+    public function __construct ($args = []){
+      $this->id = $args['id'] ?? null;
+      $this->id = $args['nombre'] ?? '';
+      $this->id = $args['apellido'] ?? '';
+      $this->id = $args['email'] ?? '';
+      $this->id = $args['password'] ?? '';
+      $this->id = $args['telefono'] ?? '';
+      $this->id = $args['admin'] ?? '0';
+      $this->id = $args['confirmado'] ?? '0';
+      $this->id = $args['token'] ?? '';
+    
+    }
 
       //obligar al usuario a llenar los datos
 

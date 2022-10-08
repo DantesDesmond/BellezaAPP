@@ -56,9 +56,15 @@ class LoginController {
                 $usuario->token);
 
 
-                debuguear($email);
+                $email->enviarConfirmacion();
 
-                debuguear($usuario);
+                // Crear el usuario
+                $resultado = $usuario->guardar();
+                if($resultado){
+                    header('Location:/mensaje');
+                }
+
+                //debuguear($usuario);
 
 
             }
@@ -73,4 +79,11 @@ class LoginController {
 
         ]);
     }
+
+    public static function mensaje(Router $router) {
+
+        $router->render('auth/mensaje');
+
+    }
+
 }
