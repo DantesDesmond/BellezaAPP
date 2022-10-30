@@ -3,6 +3,7 @@ const pasoInicial = 1;
 const pasoFinal = 3;
 
 const cita = {
+    id: '',
     nombre: '',
     fecha: '',
     hora: '',
@@ -20,6 +21,7 @@ function iniciarApp() {
     paginaSiguiente();
     paginaAnterior();
     consultarAPI();
+    idCliente();
     nombreCliente();//nombre del cliente a objeto cita
     seleccionarFecha();//añade fecha a la cita
     seleccionarHora();//añade hora cita
@@ -183,7 +185,11 @@ function seleccionarServicio(servicio){
 
     
     
-    console.log(cita);
+    //console.log(cita);
+}
+
+function idCliente() {
+    cita.id = document.querySelector('#id').value;
 }
 
 function nombreCliente() {
@@ -218,7 +224,7 @@ function seleccionarHora(){
             mostarAlerta('Hora no permitida', 'error', '.formulario');
         }else{
             cita.hora = e.target.value;
-            console.log(cita);
+            //console.log(cita);
         }
     })
 }
@@ -329,6 +335,59 @@ function mostrarResumen(){
     resumen.appendChild(botonReservar);
 }
 
-function reservarCita() {
-    console.log ('Reservando Cita. »»»')
+async function reservarCita() {
+
+    const { nombre, fecha, hora, servicios, id}= cita;
+
+    const idServicios = servicios.map(servicio => servicio.id);
+    //console.log(idServicios);
+
+
+    const datos = new FormData();
+    
+    datos.append('fecha', fecha);
+    datos.append('hora', hora);
+    datos.append('usuarioId', id);
+    datos.append('servicios', idServicios);
+
+    //console.log([...datos]);
+
+    try {
+
+        const url = 'http://localhost:3000/api/citas'
+
+        const respuesta = await fetch(url, {
+            method: 'POST',
+            body:datos
+        });
+        
+        const resultado = await respuesta.json();
+        console.log(resultado.resultado);
+    
+        if (resultado.resultado){
+            Swal.fire({
+                icon: 'success',
+                title: 'Cita enviada',
+                text: 'Cita enviada al administrador',
+                button: 'OK'
+              }).then(() => {
+                setTimeout(() => {
+                    window.location.reload();
+                }, 3000);
+                
+              })
+        }
+
+    } catch (error) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No podemos recibir tu cita',
+              })
+    }
+
+    // api peticion
+
+
+   
 }
