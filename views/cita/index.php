@@ -1,11 +1,9 @@
 <h1 class="nombre-pagina">Crear Nueva Cita</h1>
 <p class="descripcion-pagina">Elige el servicio aquí</p>
 
-<div class="barra">
-    <p>Bienvenido: <?php echo $nombre ?? '';?></p>
-
-    <a class="boton" href="/logout">Terminar la Sesión</a>
-</div>
+<?php
+     include_once __DIR__ . '/../Plantillas/barra.php';
+?>
 
 <div id="app">
     <nav class="tabs">

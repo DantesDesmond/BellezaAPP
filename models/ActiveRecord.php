@@ -130,6 +130,13 @@ class ActiveRecord {
             return array_shift( $resultado ) ;
         }
 
+        // Consulta simple SQL
+        public static function SQL($consulta) {
+            $query = $consulta;
+            $resultado = self::consultarSQL($query);
+            return $resultado;
+        }
+
     // crea un nuevo registro
     public function crear() {
         // Sanitizar los datos
