@@ -4,7 +4,7 @@
     include_once __DIR__ . '/../Plantillas/barra.php';
 ?>
 
-<h2>Buscar Citas</h2>
+<h2>Busca citas pendientes</h2>
 <div class="busqueda">
     <form class="formulario">
         <div class="campo">

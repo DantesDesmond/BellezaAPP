@@ -1,5 +1,5 @@
-<h1 class="nombre-pagina">Crear Cuenta</h1>
-<p class="descripcion-pagina">Llena el siguiente el formulario para crear una cuenta</p>
+<h1 class="nombre-pagina">Crea tu Cuenta</h1>
+<p class="descripcion-pagina">Debes llenar estos campos para crearla</p>
 
 <?php 
     include_once __DIR__ . "/../Plantillas/alertas.php";
@@ -67,6 +67,6 @@
 </form>
 
 <div class="acciones">
-    <a href="/">¿Ya tienes una cuenta? Inicia Sesión</a>
+    <a href="/">¿Ya tienes cuenta? inicia sesión</a>
     <a href="/olvide">¿Olvidaste tu password?</a>
 </div>

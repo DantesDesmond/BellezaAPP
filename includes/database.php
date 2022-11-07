@@ -1,5 +1,6 @@
 <?php
 
+//acuerdate crear variables de entorno para poder subir el proyecto
 $db = mysqli_connect('localhost', 'root', 'Migracion100', 'appsalon_mvc');
 
 

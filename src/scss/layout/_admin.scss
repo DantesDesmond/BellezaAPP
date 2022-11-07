@@ -33,3 +33,16 @@
         margin: 0;
     }
 }
+
+.servicios {
+    @extend.citas;
+
+    .acciones {
+        margin: 0;
+
+    }
+    .boton,
+    .boton-eliminar {
+        margin: 0;
+    }
+}
